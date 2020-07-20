@@ -1,6 +1,6 @@
 # vscode-swagger-jsdoc
 
-![](https://img.shields.io/badge/language-Typescript-red) ![](https://img.shields.io/badge/version-0.2.4-brightgreen) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/myyrakle/vscode-swagger-jsdoc/blob/master/LICENSE)
+![](https://img.shields.io/badge/language-Typescript-red) ![](https://img.shields.io/badge/version-0.2.5-brightgreen) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/myyrakle/vscode-swagger-jsdoc/blob/master/LICENSE)
 
 This extension provides autocomplete for swagger jsdoc.
 
