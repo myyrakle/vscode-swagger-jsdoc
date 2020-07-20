@@ -26,6 +26,11 @@ export function getTemplate(method = "method") {
  *     produces:
  *       - application/json
  *     parameters:
+ *       - in: header
+ *         name: Authorization
+ *         require: true
+ *         type: string
+ *         example: "1mckewkjldqwlkex24539rij309cmf489cmt4cm"
  *       - in: ${parameterType}
  *         name: "param_name"
  *         required: true
