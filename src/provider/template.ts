@@ -1,7 +1,7 @@
 import { networkInterfaces } from "os";
 
 export function getTemplate(method = "method") {
-    let parameterType = "path | query | body";
+    let parameterType = "path | query | body | header";
 
     switch (method) {
         case "get":
