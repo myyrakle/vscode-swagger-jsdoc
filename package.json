@@ -4,7 +4,7 @@
     "name": "swagger-jsdoc",
     "displayName": "swagger-jsdoc",
     "description": "",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "engines": {
         "vscode": "^1.47.0"
     },
@@ -12,8 +12,7 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:swagger-jsdoc",
-        "onLanguage:javascript"
+        "*"
     ],
     "main": "./out/extension.js",
     "contributes": {
