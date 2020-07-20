@@ -26,16 +26,17 @@ export function getTemplate(method = "method") {
  *     produces:
  *       - application/json
  *     parameters:
- *       - in: header
- *         name: Authorization
+ *       - name: Authorization
+ *         description: "인증용 토큰입니다."
+ *         in: header 
  *         require: true
  *         type: string
  *         example: "1mckewkjldqwlkex24539rij309cmf489cmt4cm"
- *       - in: ${parameterType}
- *         name: "param_name"
- *         required: true
- *         type: string
+ *       - name: "param_name" 
  *         description: "매개변수"
+ *         in: ${parameterType}
+ *         required: true
+ *         type: string 
  *         example: "foo"
  *     responses:
  *       200:
@@ -44,27 +45,27 @@ export function getTemplate(method = "method") {
  *           type: object
  *           properties:
  *             success:
+ *               description: "성공 여부"
  *               type: boolean
  *               example: true
- *               description: "성공 여부"
  *       400:
  *         description: "잘못된 매개변수"
  *         schema:
  *           type: object
  *           properties:
  *             success:
+ *               description: "성공 여부"
  *               type: boolean
  *               example: false
- *               description: "성공 여부"
  *       500:
  *         description: "서버 오류"
  *         schema:
  *           type: object
  *           properties:
  *             success:
+ *               description: "성공 여부"
  *               type: boolean
  *               example: false
- *               description: "성공 여부"
  */`;
 
     return docTemplate;
