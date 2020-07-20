@@ -27,7 +27,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
 
             const postCompletion = new vscode.CompletionItem("swagger-post");
             postCompletion.insertText = new vscode.SnippetString(
-                template.getTemplate("get")
+                template.getTemplate("post")
             );
             postCompletion.documentation = new vscode.MarkdownString(
                 "swagger 기본 골격을 생성합니다."
@@ -35,7 +35,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
 
             const putCompletion = new vscode.CompletionItem("swagger-put");
             putCompletion.insertText = new vscode.SnippetString(
-                template.getTemplate("get")
+                template.getTemplate("put")
             );
             putCompletion.documentation = new vscode.MarkdownString(
                 "swagger 기본 골격을 생성합니다."
@@ -45,7 +45,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 "swagger-delete"
             );
             deleteCompletion.insertText = new vscode.SnippetString(
-                template.getTemplate("get")
+                template.getTemplate("delete")
             );
             deleteCompletion.documentation = new vscode.MarkdownString(
                 "swagger 기본 골격을 생성합니다."
