@@ -19,12 +19,9 @@ export function getTemplate(method = "method") {
  * "/url":
  *   ${method}:
  *     tags: [tagname]
- *     summary:
- *       "설명입니다."
- *     consumes:
- *       - application/json
- *     produces:
- *       - application/json
+ *     summary: "설명입니다."
+ *     consumes: [application/json]
+ *     produces: [application/json]
  *     parameters:
  *       - name: Authorization
  *         description: "인증용 토큰입니다."
