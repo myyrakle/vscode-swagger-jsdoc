@@ -1,0 +1,25 @@
+{
+  "scopeName": "swagger.jsdoc",
+  "patterns": [{ "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [{ "include": "#letter" }, { "include": "#paren-expression" }]
+    },
+    "letter": {
+      "match": "get|post|put|delete|tags|summary|consumes|produces|parameters|responses",
+      "name": "keyword.letter"
+    },
+    "paren-expression": {
+      "begin": "/\*[\t\r\n\v\f]*\*[\t\r\n\v\f]*@swagger[\t\r\n\v\f]*",
+      "end": "[\t\r\n\v\f]*\*/",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group",
+      "patterns": [{ "include": "#expression" }]
+    }
+  }
+}

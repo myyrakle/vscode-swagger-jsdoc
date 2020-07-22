@@ -4,7 +4,7 @@
     "name": "swagger-jsdoc",
     "displayName": "swagger-jsdoc",
     "description": "",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "engines": {
         "vscode": "^1.47.0"
     },
@@ -38,6 +38,13 @@
                     "js",
                     "JS"
                 ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "javascript",
+                "scopeName": "swagger.jsdoc",
+                "path": "./syntaxes/id.tmLanguage."
             }
         ]
     },
