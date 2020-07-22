@@ -6,7 +6,7 @@
       "patterns": [{ "include": "#letter" }, { "include": "#paren-expression" }]
     },
     "letter": {
-      "match": "get|post|put|delete|tags|summary|consumes|produces|parameters|responses",
+      "match": "get:|post:|put:|delete:|tags:|summary:|consumes:|produces:|parameters:|responses:",
       "name": "keyword.letter"
     },
     "paren-expression": {
