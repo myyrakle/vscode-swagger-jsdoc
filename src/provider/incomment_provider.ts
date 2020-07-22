@@ -13,6 +13,32 @@ export const provider = vscode.languages.registerCompletionItemProvider(
 
             const line = document.lineAt(position).text;
             if (/^([ ]*)\*([ ]*)/.test(line)) {
+                const getCompletion = new vscode.CompletionItem("get");
+                getCompletion.insertText = new vscode.SnippetString("get: ");
+                getCompletion.documentation = new vscode.MarkdownString("get:");
+                completions.push(getCompletion);
+
+                const postCompletion = new vscode.CompletionItem("post");
+                postCompletion.insertText = new vscode.SnippetString("post: ");
+                postCompletion.documentation = new vscode.MarkdownString(
+                    "post:"
+                );
+                completions.push(postCompletion);
+
+                const putCompletion = new vscode.CompletionItem("put");
+                putCompletion.insertText = new vscode.SnippetString("put: ");
+                putCompletion.documentation = new vscode.MarkdownString("put:");
+                completions.push(putCompletion);
+
+                const deleteCompletion = new vscode.CompletionItem("delete");
+                deleteCompletion.insertText = new vscode.SnippetString(
+                    "delete: "
+                );
+                deleteCompletion.documentation = new vscode.MarkdownString(
+                    "delete:"
+                );
+                completions.push(deleteCompletion);
+
                 const tagsCompletion = new vscode.CompletionItem("tags");
                 tagsCompletion.insertText = new vscode.SnippetString(
                     "tags: [tagname]"
