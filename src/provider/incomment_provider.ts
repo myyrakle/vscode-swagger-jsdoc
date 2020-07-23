@@ -1,54 +1,65 @@
 import * as vscode from "vscode";
 
-import * as template from "./template";
-
 export const provider = vscode.languages.registerCompletionItemProvider(
-    "javascript",
+    ["javascript"],
     {
         provideCompletionItems: (
             document: vscode.TextDocument,
             position: vscode.Position
         ) => {
+            // Not triggered inside comments
+            console.log("!!!", document.getText(), "!!!");
+
+            //...
             const completions: vscode.CompletionItem[] = [];
 
             const line = document.lineAt(position).text;
             if (/^([ ]*)\*([ ]*)/.test(line)) {
-                const getCompletion = new vscode.CompletionItem("get");
+                console.log("시작!", line, "!끝!!");
+                const getCompletion = new vscode.CompletionItem("get: ");
                 getCompletion.insertText = new vscode.SnippetString("get: ");
-                getCompletion.documentation = new vscode.MarkdownString("get:");
+                getCompletion.documentation = new vscode.MarkdownString(
+                    "get method"
+                );
                 completions.push(getCompletion);
 
-                const postCompletion = new vscode.CompletionItem("post");
+                const postCompletion = new vscode.CompletionItem("post: ");
                 postCompletion.insertText = new vscode.SnippetString("post: ");
                 postCompletion.documentation = new vscode.MarkdownString(
-                    "post:"
+                    "post method"
                 );
                 completions.push(postCompletion);
 
-                const putCompletion = new vscode.CompletionItem("put");
+                const putCompletion = new vscode.CompletionItem("put: ");
                 putCompletion.insertText = new vscode.SnippetString("put: ");
-                putCompletion.documentation = new vscode.MarkdownString("put:");
+                putCompletion.documentation = new vscode.MarkdownString(
+                    "put method"
+                );
                 completions.push(putCompletion);
 
-                const deleteCompletion = new vscode.CompletionItem("delete");
+                const deleteCompletion = new vscode.CompletionItem("delete: ");
                 deleteCompletion.insertText = new vscode.SnippetString(
                     "delete: "
                 );
                 deleteCompletion.documentation = new vscode.MarkdownString(
-                    "delete:"
+                    "delete method"
                 );
                 completions.push(deleteCompletion);
 
-                const tagsCompletion = new vscode.CompletionItem("tags");
+                const tagsCompletion = new vscode.CompletionItem(
+                    "tags: [tagname]"
+                );
                 tagsCompletion.insertText = new vscode.SnippetString(
                     "tags: [tagname]"
                 );
                 tagsCompletion.documentation = new vscode.MarkdownString(
-                    "tags: [tagname]"
+                    "tags"
                 );
                 completions.push(tagsCompletion);
 
-                const summaryCompletion = new vscode.CompletionItem("summary");
+                const summaryCompletion = new vscode.CompletionItem(
+                    `summary: "설명입니다"`
+                );
                 summaryCompletion.insertText = new vscode.SnippetString(
                     `summary: "설명입니다"`
                 );
@@ -58,7 +69,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(summaryCompletion);
 
                 const consumesCompletion = new vscode.CompletionItem(
-                    "consumes"
+                    "consumes: [application/json]"
                 );
                 consumesCompletion.insertText = new vscode.SnippetString(
                     "consumes: [application/json]"
@@ -69,7 +80,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(consumesCompletion);
 
                 const producesCompletion = new vscode.CompletionItem(
-                    "produces"
+                    "produces: [application/json]"
                 );
                 producesCompletion.insertText = new vscode.SnippetString(
                     "produces: [application/json]"
@@ -80,17 +91,19 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(producesCompletion);
 
                 const parametersCompletion = new vscode.CompletionItem(
-                    "parameters"
+                    "parameters: "
                 );
                 parametersCompletion.insertText = new vscode.SnippetString(
-                    `parameters:`
+                    `parameters: `
                 );
                 parametersCompletion.documentation = new vscode.MarkdownString(
                     "parameters"
                 );
                 completions.push(parametersCompletion);
 
-                const nameCompletion = new vscode.CompletionItem("name");
+                const nameCompletion = new vscode.CompletionItem(
+                    "name: blabla"
+                );
                 nameCompletion.insertText = new vscode.SnippetString(
                     `name: blabla`
                 );
@@ -100,7 +113,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(nameCompletion);
 
                 const descriptionCompletion = new vscode.CompletionItem(
-                    "description"
+                    `description: "설명입니다."`
                 );
                 descriptionCompletion.insertText = new vscode.SnippetString(
                     `description: "설명입니다."`
@@ -110,44 +123,48 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(descriptionCompletion);
 
-                const inHeaderCompletion = new vscode.CompletionItem("in");
+                const inHeaderCompletion = new vscode.CompletionItem(
+                    "in: header"
+                );
                 inHeaderCompletion.insertText = new vscode.SnippetString(
                     "in: header"
                 );
                 inHeaderCompletion.documentation = new vscode.MarkdownString(
-                    "in: header"
+                    "HTTP headers parameter"
                 );
                 completions.push(inHeaderCompletion);
 
-                const inBodyCompletion = new vscode.CompletionItem("in");
+                const inBodyCompletion = new vscode.CompletionItem("in: body");
                 inBodyCompletion.insertText = new vscode.SnippetString(
                     "in: body"
                 );
                 inBodyCompletion.documentation = new vscode.MarkdownString(
-                    "in: body"
+                    "HTTP body parameter"
                 );
                 completions.push(inBodyCompletion);
 
-                const inQueryCompletion = new vscode.CompletionItem("in");
+                const inQueryCompletion = new vscode.CompletionItem(
+                    "in: query"
+                );
                 inQueryCompletion.insertText = new vscode.SnippetString(
                     "in: query"
                 );
                 inQueryCompletion.documentation = new vscode.MarkdownString(
-                    "in: query"
+                    "HTTP URL query parameter"
                 );
                 completions.push(inQueryCompletion);
 
-                const inPathCompletion = new vscode.CompletionItem("in");
+                const inPathCompletion = new vscode.CompletionItem("in: path");
                 inPathCompletion.insertText = new vscode.SnippetString(
                     "in: path"
                 );
                 inPathCompletion.documentation = new vscode.MarkdownString(
-                    "in: path"
+                    "HTTP URL path parameter"
                 );
                 completions.push(inPathCompletion);
 
                 const requiredCompletion = new vscode.CompletionItem(
-                    "required"
+                    "required: true"
                 );
                 requiredCompletion.insertText = new vscode.SnippetString(
                     "required: true"
@@ -223,7 +240,9 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(typeNumberCompletion);
 
-                const exampleCompletion = new vscode.CompletionItem("example");
+                const exampleCompletion = new vscode.CompletionItem(
+                    "example: foo"
+                );
                 exampleCompletion.insertText = new vscode.SnippetString(
                     `example: foo`
                 );
@@ -233,7 +252,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(exampleCompletion);
 
                 const responsesCompletion = new vscode.CompletionItem(
-                    "responses"
+                    "responses: "
                 );
                 responsesCompletion.insertText = new vscode.SnippetString(
                     `responses: `
@@ -243,7 +262,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(responsesCompletion);
 
-                const schemaCompletion = new vscode.CompletionItem("schema");
+                const schemaCompletion = new vscode.CompletionItem("schema: ");
                 schemaCompletion.insertText = new vscode.SnippetString(
                     `schema: `
                 );
@@ -253,7 +272,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 completions.push(schemaCompletion);
 
                 const propertiesCompletion = new vscode.CompletionItem(
-                    "properties"
+                    "properties: "
                 );
                 propertiesCompletion.insertText = new vscode.SnippetString(
                     `properties: `
@@ -266,6 +285,7 @@ export const provider = vscode.languages.registerCompletionItemProvider(
 
             return completions;
         },
-    }
-    //"swag"
+    },
+    ""
+    //""
 );

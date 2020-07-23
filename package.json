@@ -4,7 +4,7 @@
     "name": "swagger-jsdoc",
     "displayName": "swagger-jsdoc",
     "description": "",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "engines": {
         "vscode": "^1.47.0"
     },
@@ -13,34 +13,10 @@
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "onLanguage:javascript",
+        "onLanguage:typescript"
     ],
     "main": "./out/extension.js",
-    "contributes": {
-        "files.associations": {
-            "*.js": "javascript"
-        },
-        "commands": [
-            {
-                "command": "swagger-jsdoc",
-                "title": "swagger"
-            }
-        ],
-        "languages": [
-            {
-                "id": "javascript",
-                "extensions": [
-                    ".js"
-                ],
-                "aliases": [
-                    "Javascript",
-                    "javascript",
-                    "js",
-                    "JS"
-                ]
-            }
-        ]
-    },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",

@@ -10,6 +10,8 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage("trigger swagger-jsdoc");
     });
 
+    //vscode.commands.registerTextEditorCommand()
+
     context.subscriptions.push(
         trigger,
         basic_provider.provider,
