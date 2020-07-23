@@ -4,7 +4,7 @@
     "name": "swagger-jsdoc",
     "displayName": "swagger-jsdoc",
     "description": "",
-    "version": "0.4.2",
+    "version": "0.4.4",
     "engines": {
         "vscode": "^1.47.0"
     },
@@ -17,6 +17,17 @@
         "onLanguage:typescript"
     ],
     "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "[javascript]": {
+                "editor.quickSuggestions": {
+                    "other": true,
+                    "comments": true,
+                    "strings": false
+                }
+            }
+        }
+    },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
