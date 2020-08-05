@@ -23,12 +23,6 @@ export function getTemplate(method = "method") {
  *     consumes: [application/json]
  *     produces: [application/json]
  *     parameters:
- *       - name: Authorization
- *         description: "인증용 토큰입니다."
- *         in: header 
- *         required: true
- *         type: string
- *         example: "1mckewkjldqwlkex24539rij309cmf489cmt4cm"
  *       - name: "param_name" 
  *         description: "매개변수"
  *         in: ${parameterType}
