@@ -240,6 +240,58 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(typeNumberCompletion);
 
+                const arrayCompletion = new vscode.CompletionItem("array");
+                arrayCompletion.insertText = new vscode.SnippetString("array");
+                arrayCompletion.documentation = new vscode.MarkdownString(
+                    "array"
+                );
+                completions.push(arrayCompletion);
+
+                const objectCompletion = new vscode.CompletionItem("object");
+                objectCompletion.insertText = new vscode.SnippetString(
+                    "object"
+                );
+                objectCompletion.documentation = new vscode.MarkdownString(
+                    "object"
+                );
+                completions.push(objectCompletion);
+
+                const booleanCompletion = new vscode.CompletionItem("boolean");
+                booleanCompletion.insertText = new vscode.SnippetString(
+                    "boolean"
+                );
+                booleanCompletion.documentation = new vscode.MarkdownString(
+                    "boolean"
+                );
+                completions.push(booleanCompletion);
+
+                const integerCompletion = new vscode.CompletionItem("integer");
+                integerCompletion.insertText = new vscode.SnippetString(
+                    "integer"
+                );
+                integerCompletion.documentation = new vscode.MarkdownString(
+                    "integer"
+                );
+                completions.push(integerCompletion);
+
+                const numberCompletion = new vscode.CompletionItem("number");
+                numberCompletion.insertText = new vscode.SnippetString(
+                    "number"
+                );
+                numberCompletion.documentation = new vscode.MarkdownString(
+                    "number"
+                );
+                completions.push(numberCompletion);
+
+                const stringCompletion = new vscode.CompletionItem("string");
+                stringCompletion.insertText = new vscode.SnippetString(
+                    "string"
+                );
+                stringCompletion.documentation = new vscode.MarkdownString(
+                    "type: string"
+                );
+                completions.push(stringCompletion);
+
                 const exampleCompletion = new vscode.CompletionItem(
                     "example: foo"
                 );
