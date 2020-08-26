@@ -292,6 +292,20 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(stringCompletion);
 
+                const trueCompletion = new vscode.CompletionItem("true");
+                trueCompletion.insertText = new vscode.SnippetString("true");
+                trueCompletion.documentation = new vscode.MarkdownString(
+                    "true"
+                );
+                completions.push(trueCompletion);
+
+                const falseCompletion = new vscode.CompletionItem("false");
+                falseCompletion.insertText = new vscode.SnippetString("false");
+                falseCompletion.documentation = new vscode.MarkdownString(
+                    "false"
+                );
+                completions.push(falseCompletion);
+
                 const exampleCompletion = new vscode.CompletionItem(
                     "example: foo"
                 );
