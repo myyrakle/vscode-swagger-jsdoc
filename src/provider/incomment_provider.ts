@@ -306,6 +306,13 @@ export const provider = vscode.languages.registerCompletionItemProvider(
                 );
                 completions.push(falseCompletion);
 
+                const nullCompletion = new vscode.CompletionItem("null");
+                nullCompletion.insertText = new vscode.SnippetString("null");
+                nullCompletion.documentation = new vscode.MarkdownString(
+                    "null"
+                );
+                completions.push(nullCompletion);
+
                 const exampleCompletion = new vscode.CompletionItem(
                     "example: foo"
                 );
